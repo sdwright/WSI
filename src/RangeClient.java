@@ -1,5 +1,6 @@
 import org.apache.commons.lang3.Range;
 
+// Alternate approach...
 //import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeSet;
@@ -38,7 +39,7 @@ public class RangeClient {
 
                     ranges.add(range);
 
-                    // Alternate approach....
+                    // Alternate approach...
                     //RangeComparator rangeComparator = new RangeComparator(range);
                     //rangeComparators.add(rangeComparator);
 
@@ -47,11 +48,10 @@ public class RangeClient {
                      *
                      * 1. Remove range that overlaps from collection.
                      * 2. Locate range that overlaps with this range.
-                     * 3. See if range is overlapping on the minimum or the maximum. If the range is overlapping
-                     * on both the minimum and maximum then it becomes a contains situation which is already handled in
-                     * the comparator compare method.
-                     * 4. Replace that range with either a different minimum or maximum in order to include the
-                     * overlapping range.
+                     * 4. See if located range is overlapping on the minimum or the maximum and replace that range with
+                     * either a different minimum or maximum in order to include the overlapping range.
+                     * If the range is overlapping on both the minimum and maximum then it becomes a contains situation
+                     * which is already handled in the comparator compare method.
                      */
 
                     // Alternate approach....
@@ -74,9 +74,12 @@ public class RangeClient {
      * Displays the minimum number of ranges required to represent the same restrictions as the input.
      */
     private static void displayMinimizedRanges() {
-        for (Object range : ranges)
-            System.out.print(range.toString());
-        // Todo: Range.toString() is called instead of RangeComparator.toString().
+        for (Range range : ranges)
+            System.out.print(range.toString()); // Todo: Invalid...not calling overridden method.
+
+        // Alternate approach...
+        //for (RangeComparator rangeComparator : rangeComparators)
+            //System.out.print(rangeComparator.toString());
     }
 
 }
