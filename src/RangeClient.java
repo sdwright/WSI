@@ -9,7 +9,7 @@ import java.util.TreeSet;
 public class RangeClient {
 
     // Contains the list of zip code ranges using a custom comparator to control what this set contains.
-    private static Set<Range> ranges = new TreeSet<>(new RangeComparator());
+    private static Set<Range<Integer>> ranges = new TreeSet<Range<Integer>>(new RangeComparator());
 
     private static final String errorMessage = "Please enter 5-digit ZIP code ranges (each range includes both " +
             "their upper and lower bounds), for example - [94133,94133] [94200,94299] [94226,94399].";

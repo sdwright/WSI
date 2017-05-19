@@ -5,10 +5,10 @@ import java.util.Comparator;
 /**
  * This class implements a Range comparator.
  */
-class RangeComparator implements Comparator<Range> {
+class RangeComparator implements Comparator<Range<Integer>> {
 
     @Override
-    public int compare(Range obj1, Range obj2) {
+    public int compare(Range<Integer> obj1, Range<Integer> obj2) {
 
         // Check if the specified range is contained in this range, if so don't include.
         if (obj1.containsRange(obj2)) {
