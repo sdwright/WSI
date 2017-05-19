@@ -29,14 +29,10 @@ class RangeComparator implements Comparator<Range> {
      */
     @Override
     public String toString() {
-        StringBuilder buf = new StringBuilder(13);
-
-        buf.append('[');
-        //buf.append(this.minimum); // ???
-        buf.append(',');
-        //buf.append(this.maximum); // ???
-        buf.append("] ");
-
-        return buf.toString();
+        return "[" +
+                //range.getMinimum() +
+                ',' +
+                //range.getMaximum() +
+                "] ";
     }
 }
