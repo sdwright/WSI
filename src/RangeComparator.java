@@ -7,6 +7,19 @@ import java.util.Comparator;
  */
 class RangeComparator implements Comparator<Range<Integer>> {
 
+    private boolean rangeOverlaps = false;
+
+    // The range associated with this object.
+    private Range<Integer> range;
+
+    /**
+     * Alternative approach
+     * The constructor for this class.
+     */
+    //RangeComparator(Range<Integer> range) {
+        //this.range = range;
+    //}
+
     @Override
     public int compare(Range<Integer> obj1, Range<Integer> obj2) {
 
@@ -17,10 +30,19 @@ class RangeComparator implements Comparator<Range<Integer>> {
 
         // Check if the specified range is overlapping with this range.
         if (obj1.overlapsRange(obj2)) {
+            rangeOverlaps = true;
             return -1;
         }
 
         return 1;
+    }
+
+    /**
+     *
+     * @return boolean rangeOverlaps
+     */
+    public boolean isRangeOverlaps() {
+        return this.rangeOverlaps;
     }
 
     /**
@@ -30,9 +52,9 @@ class RangeComparator implements Comparator<Range<Integer>> {
     @Override
     public String toString() {
         return "[" +
-                //range.getMinimum() +
+                range.getMinimum() +
                 ',' +
-                //range.getMaximum() +
+                range.getMaximum() +
                 "] ";
     }
 }
